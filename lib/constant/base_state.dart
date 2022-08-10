@@ -1,0 +1,16 @@
+enum BaseStateDef {
+  init,
+  processing,
+  success,
+  failed,
+  error,
+  toastSuccess,
+  toastError,
+  errorNetwork,
+  refreshTokenError,
+  logout,
+  tokenError,
+  searching,
+  popUntil,
+  navigate,
+}
