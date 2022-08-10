@@ -4,6 +4,7 @@ import 'package:custom_textfield/widgets/warning.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 import 'bloc/signup_bloc.dart';
 
@@ -13,7 +14,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final signupBloc = injector.get<SignupBloc>();
-    final textController = TextEditingController();
+    final phoneController = TextEditingController();
+    final passwordController = TextEditingController();
+    final rePasswordController = TextEditingController();
     final focusNode = FocusNode();
 
     return Scaffold(
@@ -43,10 +46,10 @@ class HomeScreen extends StatelessWidget {
                   height: 12.h,
                 ),
                 CustomTextField(
-                    textController: textController,
-                    textInputType: TextInputType.number,
-                    onChanged: (value) {},
-                    focusNode: focusNode),
+                  textController: phoneController,
+                  textInputType: TextInputType.number,
+                  onChanged: (value) {},
+                ),
                 SizedBox(
                   height: 14.h,
                 ),
@@ -79,10 +82,13 @@ class HomeScreen extends StatelessWidget {
                   height: 8.h,
                 ),
                 CustomTextField(
-                    textController: textController,
-                    textInputType: TextInputType.number,
-                    onChanged: (value) {},
-                    focusNode: focusNode),
+                  textController: passwordController,
+                  textInputType: TextInputType.number,
+                  onChanged: (value) {},
+                  suffixIcon: SvgPicture.asset(
+                    'assets/icons/tick.svg',
+                  ),
+                ),
                 SizedBox(
                   height: 25.h,
                 ),
@@ -97,10 +103,13 @@ class HomeScreen extends StatelessWidget {
                   height: 8.h,
                 ),
                 CustomTextField(
-                    textController: textController,
-                    textInputType: TextInputType.number,
-                    onChanged: (value) {},
-                    focusNode: focusNode),
+                  textController: rePasswordController,
+                  textInputType: TextInputType.number,
+                  onChanged: (value) {},
+                  suffixIcon: SvgPicture.asset(
+                    'assets/icons/tick.svg',
+                  ),
+                ),
                 SizedBox(
                   height: 14.h,
                 ),

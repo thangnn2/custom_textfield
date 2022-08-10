@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -9,12 +8,14 @@ class CustomTextField extends StatelessWidget {
     this.focusNode,
     required this.textInputType,
     this.onChanged,
+    this.suffixIcon,
   }) : super(key: key);
 
   final TextEditingController textController;
   final FocusNode? focusNode;
   final TextInputType textInputType;
   final ValueChanged<String>? onChanged;
+  final Widget? suffixIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +38,8 @@ class CustomTextField extends StatelessWidget {
         fillColor: Colors.white,
         contentPadding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 16.w),
         suffixIcon: Container(
-          padding: EdgeInsets.symmetric(vertical: 13.h, horizontal: 13.w),
-          child: SvgPicture.asset(
-            'assets/icons/tick.svg',
-          ),
-        ),
+            padding: EdgeInsets.symmetric(vertical: 13.h, horizontal: 13.w),
+            child: suffixIcon ?? const SizedBox()),
       ),
     );
   }
